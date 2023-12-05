@@ -9,6 +9,8 @@ const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
 const inputBreed = document.querySelector('.js-input-breed');
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const button_search = document.querySelector('.js_btn_search');
 
 //VARIABLES
 
@@ -63,17 +65,22 @@ const kittenThree = `<li class="card">
           </li>
 `
 jsList.innerHTML = kittenOne + kittenTwo + kittenThree;
-
-// const valueDesc = inputDesc.value;
-// const valuePhoto = inputPhoto.value;
-// const valueName = inputName.value;
-// const valueBreed = inputBreed.value;
+const kittenDesc1 = `Porte elegante, su patrón de color tan característico y sus ojos
+    de un azul intenso, pero su historia se remonta a Asía al menos
+    hace 500 años, donde tuvo su origen muy posiblemente.`;
+const kittenDesc2 = `Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
+    hasta con pinta de alienígena han llegado a definir a esta raza
+    gatuna que se caracteriza por la «ausencia» de pelo.`;
+const kittenDesc3 = `Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+    bella mirada se ha convertido en una de sus señas de identidad.
+    Sus ojos son grandes y las orejas resultan largas y en punta.`;
 
 
 //EVENTOS
 showButton.addEventListener ('click', (event) => {
+  formSection.classList.toggle ('collapsed'); 
 });
-    formSection.classList.toggle ('collapsed'); 
+    
 
 newCat.addEventListener ('click', (event) => {
     event.preventDefault();
@@ -100,5 +107,19 @@ newCat.addEventListener ('click', (event) => {
 jsList.innerHTML += newKittenHTML;
 });
 
-
+button_search.addEventListener('click', (event) => {
+  event.preventDefault()
+  const descrSearchText = input_search_desc.value;
+jsList.innerHTML = "";
+  if( kittenDesc1.includes(descrSearchText) ) {
+    jsList.innerHTML += kittenOne
+    }
+    
+    if( kittenDesc2.includes(descrSearchText) ) {
+      jsList.innerHTML += kittenTwo  }
+    
+    if( kittenDesc3.includes(descrSearchText) ) {
+      jsList.innerHTML += kittenThree
+    }
+});
 //CODIGO CUANDO INICIA LA PAGINA
