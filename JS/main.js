@@ -62,7 +62,7 @@ jsList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
 //EVENTOS
 showButton.addEventListener ('click', (event) => {
-    formSection.classList.toggle ('collapsed'); 
 });
+    formSection.classList.toggle ('collapsed'); 
 
 //CODIGO CUANDO INICIA LA PAGINA
